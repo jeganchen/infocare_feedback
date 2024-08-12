@@ -19,7 +19,7 @@
 
     <table class="table table-dark-header table-bordered table-responsive">
         <tbody>
-            <tr id="version">
+            <!-- <tr id="version">
                 <th>{{ __('App Version') }}</th>
                 <td class="table-main-col">
                     @if (!\Config::get('app.disable_updating'))
@@ -41,7 +41,7 @@
                         <strong class="text-success">{{ \Config::get('app.version') }}</strong>
                     @endif
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <th>{{ __('Date & Time') }}</th>
                 <td class="table-main-col">{{ App\User::dateFormat(new Illuminate\Support\Carbon(), 'M j, Y H:i', null, true, false) }}</td>
