@@ -252,7 +252,7 @@
             && empty(app('request')->x_embed) && empty($__env->yieldContent('no_footer')))
             <div class="footer">
                 @if (!\Eventy::filter('footer.text', ''))
-                    &copy; 2022-{{ date('Y') }} <a href="{{ config('app.infocare_url') }}" target="blank">{{ \Config::get('app.name') }}</a> — {{ __('Free open source help desk & shared mailbox') }}
+                    &copy; 2022-{{ date('Y') }} <a href="{{ config('app.infocare_url') }}" target="blank">{{ \Config::get('app.name') }}</a> — {{ __('Powered by Infocare') }}
                 @else
                     {!! \Eventy::filter('footer.text', '') !!}
                 @endif
@@ -260,10 +260,10 @@
                     <a href="#" class="hidden in-app-switcher"><br/>{{ __('Switch Helpdesk URL') }}</a>
                 @endif
                 {{-- Show version to admin only --}}
-                @if (Auth::user() && Auth::user()->isAdmin())
+                <!-- @if (Auth::user() && Auth::user()->isAdmin())
                     <br/>
                     <a href="{{ route('system') }}">{{ config('app.version') }}</a>
-                @endif
+                @endif -->
             </div>
         @endif
     </div>
