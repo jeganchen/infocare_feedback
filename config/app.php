@@ -181,7 +181,7 @@ return [
     | FreeScout email
     |-------------------------------------------------------------------------
     */
-    'freescout_email' => 'support@freescout.net',
+    'freescout_email' => 'help@infocare.org.cn',
 
     /*
     |--------------------------------------------------------------------------

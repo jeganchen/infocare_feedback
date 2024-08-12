@@ -303,7 +303,7 @@ class Mail
     {
         $mail_from = Option::get('mail_from');
         if (!$mail_from) {
-            $mail_from = 'freescout@'.\Helper::getDomain();
+            $mail_from = 'infocare@'.\Helper::getDomain();
         }
 
         return $mail_from;
