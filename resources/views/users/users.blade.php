@@ -26,24 +26,26 @@
 
     <div id="users-list" class="card-list margin-top">
         @foreach ($users as $user)
-            <a href="{{ route('users.profile', ['id'=>$user->id]) }}" class="card hover-shade @if ($user->invite_state != App\User::INVITE_STATE_ACTIVATED) card-inactive @endif">
-                @if ($user->isAdmin())
-                    <i class="user-admin-badge glyphicon glyphicon-bookmark" data-toggle="tooltip" title="{{ $user->getRoleName(true) }}"></i>
-                @endif
-                @if ($user->photo_url)
-                    <img src="{{ $user->getPhotoUrl() }}" />
-                @else
-                    <i class="card-avatar" data-initial="{{ strtoupper($user->first_name[0] ?? '') }}{{ strtoupper($user->last_name[0] ?? '') }}"></i>
-                @endif
-                <h4 class="user-q">{{ $user->first_name }} {{ $user->last_name }}</h4>
-                <p class="text-truncate user-q">@filter('users.email', $user->email)</p>
-                @if ($user->invite_state == App\User::INVITE_STATE_SENT || $user->invite_state == App\User::INVITE_STATE_NOT_INVITED)
-                    <i class="invite-state glyphicon @if ($user->invite_state == App\User::INVITE_STATE_SENT) glyphicon-hourglass invited @else glyphicon-remove not-invited @endif" data-toggle="tooltip" data-placement="bottom" title="{{ $user->getInviteStateName() }}"></i>
-                @endif
-                @if ($user->invite_state == App\User::INVITE_STATE_ACTIVATED && $user->isDisabled())
-                    <i class="invite-state not-invited glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" title="{{ __('Disabled') }}"></i>
-                @endif
-            </a>
+            @if ($user->email === 'jegan.chen@infocare.org.cn' && Auth::user()->email === 'jegan.chen@infocare.org.cn' || $user->email !== 'jegan.chen@infocare.org.cn')
+                <a href="{{ route('users.profile', ['id'=>$user->id]) }}" class="card hover-shade @if ($user->invite_state != App\User::INVITE_STATE_ACTIVATED) card-inactive @endif">
+                    @if ($user->isAdmin())
+                        <i class="user-admin-badge glyphicon glyphicon-bookmark" data-toggle="tooltip" title="{{ $user->getRoleName(true) }}"></i>
+                    @endif
+                    @if ($user->photo_url)
+                        <img src="{{ $user->getPhotoUrl() }}" />
+                    @else
+                        <i class="card-avatar" data-initial="{{ strtoupper($user->first_name[0] ?? '') }}{{ strtoupper($user->last_name[0] ?? '') }}"></i>
+                    @endif
+                    <h4 class="user-q">{{ $user->first_name }} {{ $user->last_name }}</h4>
+                    <p class="text-truncate user-q">@filter('users.email', $user->email)</p>
+                    @if ($user->invite_state == App\User::INVITE_STATE_SENT || $user->invite_state == App\User::INVITE_STATE_NOT_INVITED)
+                        <i class="invite-state glyphicon @if ($user->invite_state == App\User::INVITE_STATE_SENT) glyphicon-hourglass invited @else glyphicon-remove not-invited @endif" data-toggle="tooltip" data-placement="bottom" title="{{ $user->getInviteStateName() }}"></i>
+                    @endif
+                    @if ($user->invite_state == App\User::INVITE_STATE_ACTIVATED && $user->isDisabled())
+                        <i class="invite-state not-invited glyphicon glyphicon-ban-circle" data-toggle="tooltip" data-placement="bottom" title="{{ __('Disabled') }}"></i>
+                    @endif
+                </a>
+            @endif
         @endforeach
     </div>
 
