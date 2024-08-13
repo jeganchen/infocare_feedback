@@ -17,7 +17,7 @@
     <small class="note-bottom-div"></small> 
     <span class="editor-btm-text">{{ __('Assign to') }}:</span> 
     {{-- Note never changes Assignee --}}
-    <select name="user_id" class="form-control parsley-exclude">
+    <select name="user_id" class="form-control parsley-exclude" @if (!Auth::user()->isAdmin()) disabled @endif>
         <option value="-1" @if ($mailbox->ticket_assignee == App\Mailbox::TICKET_ASSIGNEE_ANYONE || ($mailbox->ticket_assignee == App\Mailbox::TICKET_ASSIGNEE_KEEP_CURRENT && $conversation->assignee == App\Mailbox::TICKET_ASSIGNEE_ANYONE))data-default="true" selected="selected"@endif>{{ __('Anyone') }}</option>
     	<option value="{{ Auth::user()->id }}" @if (
             ($conversation->user_id == Auth::user()->id && $mailbox->ticket_assignee != App\Mailbox::TICKET_ASSIGNEE_ANYONE) 
