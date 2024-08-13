@@ -98,8 +98,9 @@ return [
     */
 
     'locale'          => env('APP_LOCALE', 'en'),
-    'locales'         => ['en', 'zh-CN', 'hr', 'cs', 'da', 'nl', 'fi', 'fr', 'de', 'it', 'ja', 'ko', 'no', 'fa', 'pl', 'pt-PT', 'pt-BR', 'ru', 'es', 'sk', 'sv', 'tr'],
-    'locales_rtl'     => ['fa'],
+    'locales'         => ['en', 'zh-CN'],
+    // 'locales'         => ['en', 'zh-CN', 'hr', 'cs', 'da', 'nl', 'fi', 'fr', 'de', 'it', 'ja', 'ko', 'no', 'fa', 'pl', 'pt-PT', 'pt-BR', 'ru', 'es', 'sk', 'sv', 'tr'],
+    'locales_rtl'     => ['en'],
     'default_locale'  => 'en',
 
     /*
