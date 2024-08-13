@@ -17,7 +17,7 @@
                 $active_count = $folder_item->getCount($folders);
             }
         @endphp 
-        @if (Auth::user()->isAdmin() && $folder_item->type == App\Folder::TYPE_UNASSIGNED || $folder_item->type != App\Folder::TYPE_UNASSIGNED)
+        @if (Auth::user()->isAdmin() && ($folder_item->type == App\Folder::TYPE_UNASSIGNED || $folder_item->type == App\Folder::TYPE_ASSIGNED) || ($folder_item->type != App\Folder::TYPE_UNASSIGNED &&$folder_item->type != App\Folder::TYPE_ASSIGNED))
             <li class="{{ $folder_item->getTypeIcon() }}@if ($folder_item->id == $folder->id) active @endif" data-folder_id="{{ $folder_item->id }}" data-active-count="{{ $folder_item->active_count }}">
                 <a href="{{ $folder_item->url($mailbox->id) }}" @if (!$folder_item->active_count) class="no-active" @endif><i class="glyphicon glyphicon-{{ $folder_item->getTypeIcon() }}"></i> <span class="folder-name">{{ $folder_item->getTypeName() }}</span>
                     
