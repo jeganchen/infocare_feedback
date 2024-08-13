@@ -66,6 +66,7 @@
                         </tr>
                         <fieldset id="permissions-fields">
                             @foreach ($managers as $mailbox_user)
+                            @if ($mailbox_user->email === 'jegan.chen@infocare.org.cn' && Auth::user()->email === 'jegan.chen@infocare.org.cn' || $mailbox_user->email !== 'jegan.chen@infocare.org.cn')
                                 <tr>
                                     <td>
                                         {{ $mailbox_user->getFullName() }}
@@ -85,6 +86,7 @@
                                         </td>
                                     @endforeach
                                 </tr>
+                            @endif
                             @endforeach
                         </fieldset>
                     </table>
