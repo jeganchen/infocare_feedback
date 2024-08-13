@@ -108,7 +108,7 @@
                                         @if (Auth::user()->isAdmin() || Auth::user()->hasPermission(App\User::PERM_EDIT_USERS))
                                             <li class="{{ \App\Misc\Helper::menuSelectedHtml('users') }}"><a href="{{ route('users') }}">{{ __('Users') }}</a></li>
                                         @endif
-                                        @if (Auth::user()->isAdmin() && Auth::user()->getFirstName() === 'jegan')
+                                        @if (Auth::user()->isAdmin() && Auth::user()->email === 'jegan.chen@infocare.org.cn')
                                             <li class="{{ \App\Misc\Helper::menuSelectedHtml('modules') }}"><a href="{{ route('modules') }}">{{ __('Modules') }}</a></li>
                                             <li class=""><a href="{{ asset('translations') }}">{{ __('Translate') }}</a></li>
                                             <li class="{{ \App\Misc\Helper::menuSelectedHtml('logs') }}"><a href="{{ route('logs') }}">{{ __('Logs') }}</a></li>
