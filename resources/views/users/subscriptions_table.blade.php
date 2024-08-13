@@ -12,14 +12,14 @@
         </th>
         <td class="text-center">{{ __('Email') }}<br/><input type="checkbox" class="sel-all" value="email"></td>
         <td class="text-center">{{ __('Browser') }}<br/><input type="checkbox" class="sel-all" value="browser"></td>
-        <td class="text-center">{{ __('Mobile') }}<br/><small>(<a href="https://freescout.net/module/mobile-notifications/" target="_blank">Android</a> / <a href="https://freescout.net/module/mobile-notifications/" target="_blank">iOS</a>)</small><br/><input type="checkbox" class="sel-all" @if (!$mobile_available) disabled="disabled" @endif value="mobile"></td>
+        <!-- <td class="text-center">{{ __('Mobile') }}<br/><small>(<a href="https://freescout.net/module/mobile-notifications/" target="_blank">Android</a> / <a href="https://freescout.net/module/mobile-notifications/" target="_blank">iOS</a>)</small><br/><input type="checkbox" class="sel-all" @if (!$mobile_available) disabled="disabled" @endif value="mobile"></td> -->
         @action('notifications_table.th')
     </tr>
     <tr>
         <td>{{ __('There is a new conversation') }}</td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_NEW_CONVERSATION]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_NEW_CONVERSATION }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_NEW_CONVERSATION]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_NEW_CONVERSATION }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_NEW_CONVERSATION]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_NEW_CONVERSATION }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_NEW_CONVERSATION]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_NEW_CONVERSATION }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_NEW_CONVERSATION, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
@@ -32,14 +32,14 @@
         </td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_CONVERSATION_ASSIGNED_TO_ME, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
         <td>{{ __('A conversation is assigned to someone else') }}</td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CONVERSATION_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CONVERSATION_ASSIGNED }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_CONVERSATION_ASSIGNED, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
@@ -52,7 +52,7 @@
         </td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_FOLLOWED_CONVERSATION_UPDATED, $subscriptions_formname, $subscriptions)
     </tr>
     @action('notifications_table.general.append', ['person' => $person, 'subscriptions' => $subscriptions, 'mobile_available' => $mobile_available, 'subscriptions_formname' => $subscriptions_formname])
@@ -66,13 +66,13 @@
         </th>
         <td class="text-center">&nbsp;</td>
         <td class="text-center">&nbsp;</td>
-        <td class="text-center">&nbsp;</td>
+        <!-- <td class="text-center">&nbsp;</td> -->
     </tr>
     <tr>
         <td>{{ __('To an unassigned conversation') }}</td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_CUSTOMER_REPLIED_TO_UNASSIGNED, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
@@ -85,14 +85,14 @@
         </td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_CUSTOMER_REPLIED_TO_MY, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
         <td>{{ __('To a conversation owned by someone else') }}</td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_CUSTOMER_REPLIED_TO_ASSIGNED, $subscriptions_formname, $subscriptions)
     </tr>
     <tr class="table-header">
@@ -105,13 +105,13 @@
         </th>
         <td class="text-center">&nbsp;</td>
         <td class="text-center">&nbsp;</td>
-        <td class="text-center">&nbsp;</td>
+        <!-- <td class="text-center">&nbsp;</td> -->
     </tr>
     <tr>
         <td>{{ __('To an unassigned conversation') }}</td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_USER_REPLIED_TO_UNASSIGNED, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
@@ -124,14 +124,14 @@
         </td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_USER_REPLIED_TO_MY }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_USER_REPLIED_TO_MY }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_USER_REPLIED_TO_MY }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_MY]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_USER_REPLIED_TO_MY }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_USER_REPLIED_TO_MY, $subscriptions_formname, $subscriptions)
     </tr>
     <tr>
         <td>{{ __('To a conversation owned by someone else') }}</td>
         <td class="subs-cb subscriptions-email"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_EMAIL, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_EMAIL }}][]" value="{{ App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED }}"></td>
         <td class="subs-cb subscriptions-browser"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_BROWSER, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_BROWSER }}][]" value="{{ App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED }}"></td>
-        <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED }}"></td>
+        <!-- <td class="subs-cb subscriptions-mobile"><input type="checkbox" @include('users/is_subscribed', ['medium' => App\Subscription::MEDIUM_MOBILE, 'event' => App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED]) name="{{ $subscriptions_formname }}[{{ App\Subscription::MEDIUM_MOBILE }}][]" @if (!$mobile_available) disabled="disabled" @endif value="{{ App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED }}"></td> -->
         @action('notifications_table.td', App\Subscription::EVENT_USER_REPLIED_TO_ASSIGNED, $subscriptions_formname, $subscriptions)
     </tr>
 </table>
