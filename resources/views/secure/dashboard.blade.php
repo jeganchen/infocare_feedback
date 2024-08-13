@@ -24,7 +24,7 @@
                                 @php
                                     $active_count = $folder->getCount($main_folders);
                                 @endphp
-                                @if ((Auth::user()->isAdmin() && ($folder->type == App\Folder::TYPE_UNASSIGNED || $folder->type == App\Folder::TYPE_ASSIGNED)) || ($folder->type != App\Folder::TYPE_UNASSIGNED && $folder->type != App\Folder::TYPE_ASSIGNED)
+                                @if ((Auth::user()->isAdmin() && ($folder->type == App\Folder::TYPE_UNASSIGNED || $folder->type == App\Folder::TYPE_ASSIGNED)) || ($folder->type != App\Folder::TYPE_UNASSIGNED && $folder->type != App\Folder::TYPE_ASSIGNED))
                                     <a href="{{ $folder->url($mailbox->id) }}" class="dash-card-list-item @if (!$active_count) dash-card-item-empty @endif" title="@if ($active_count){{  __('Waiting Since') }}@else{{  __('View conversations') }}@endif">{{ $folder->getTypeName() }}@if (!$folder->isIndirect() && $active_count)<span class="waiting-since">/ {{ $folder->getWaitingSince() }}</span>@endif<strong @if ((int)$active_count) class="has-value" @endif>{{ $active_count }}</strong></a>
                                 @endif
                             @endforeach
