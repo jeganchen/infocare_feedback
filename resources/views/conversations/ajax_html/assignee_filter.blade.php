@@ -1,3 +1,4 @@
+@if (Auth::user()->isAdmin())
 <div class="form-group">
     <div class="input-group input-group-lg">
         <select class="form-control input-lg conv-assignee-filter">
@@ -11,3 +12,4 @@
         </span>
     </div>
 </div>
+@endif

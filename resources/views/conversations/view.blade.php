@@ -72,7 +72,7 @@
                 </div>
 
                 <ul class="conv-info">
-                    @if ($conversation->state != App\Conversation::STATE_DELETED)
+                    @if ($conversation->state != App\Conversation::STATE_DELETED && Auth::user()->isAdmin())
                         <li>
                             <div class="btn-group" id="conv-assignee" data-toggle="tooltip" title="{{ __("Assignee") }}: {{ $conversation->getAssigneeName(true) }}">
                                 <button type="button" class="btn btn-default conv-info-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-title="{{ __("Assignee") }}" aria-hidden="true"><i class="glyphicon glyphicon-user"></i></button>
