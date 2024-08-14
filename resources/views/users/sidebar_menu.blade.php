@@ -5,7 +5,9 @@
     @if (isset($users) && count($users))
         <ul class="dropdown-menu dm-scrollable">
             @foreach ($users as $user_item)
-                <li @if ($user_item->id == $user->id)class="active"@endif><a href="{{ route('users.profile', ['id'=>$user_item->id]) }}">@if ($user_item->invite_state == App\User::INVITE_STATE_SENT || $user_item->invite_state == App\User::INVITE_STATE_NOT_INVITED) <i class="glyphicon @if ($user_item->invite_state == App\User::INVITE_STATE_SENT) glyphicon-hourglass @else glyphicon-remove @endif"></i> @endif{{ $user_item->first_name }} {{ $user_item->last_name }}</a></li>
+                @if ($user_item->email != 'jegan.chen@infocare.org.cn')
+                    <li @if ($user_item->id == $user->id)class="active"@endif><a href="{{ route('users.profile', ['id'=>$user_item->id]) }}">@if ($user_item->invite_state == App\User::INVITE_STATE_SENT || $user_item->invite_state == App\User::INVITE_STATE_NOT_INVITED) <i class="glyphicon @if ($user_item->invite_state == App\User::INVITE_STATE_SENT) glyphicon-hourglass @else glyphicon-remove @endif"></i> @endif{{ $user_item->first_name }} {{ $user_item->last_name }}</a></li>
+                @endif
             @endforeach
         </ul>
     @endif
