@@ -62,11 +62,11 @@
 			<div style="height:1px"><div style="border-bottom:1px solid #e7e7e7;"></div></div>
 			<div style="height:15px;"></div>
 		@endforeach
-		@if (\App\Option::get('email_branding'))
+		<!-- @if (\App\Option::get('email_branding'))
             <div height="" style="height:30px; font-size:12px; line-height:18px; font-family:Arial,'Helvetica Neue',Helvetica,Tahoma,sans-serif; color: #aaaaaa;">
 				{!! __('Support powered by :app_name — Help desk & shared mailbox', ['app_name' => '<a href="https://infocare.org.cn">'.\Config::get('app.name').'</a>']) !!}
 			</div>
-		@endif
+		@endif -->
 		<div style="height:0; font-size:0px; line-height:0px; color:#ffffff;">	                    	
 			@if (\App\Option::get('open_tracking'))
 				<img src="{{ route('open_tracking.set_read', ['conversation_id' => $threads->first()->conversation_id, 'thread_id' => $threads->first()->id, 'otr' => '1']) }}" alt="" />
